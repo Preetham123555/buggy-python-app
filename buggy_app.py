@@ -1,36 +1,38 @@
+
 # Buggy Python App - Has Multiple Bugs!
 
-# Bug 1: Wrong division operator
+# Function to calculate the average of a list of numbers
 def calculate_average(numbers):
     total = 0
     for num in numbers:
-        total =+ num  # Bug: should be +=
+        total += num  # Fix: correct augmentation operator
     return total / len(numbers)
 
-# Bug 2: Infinite loop
+# Function to find the index of a target item in a list
 def find_item(items, target):
     i = 0
     while i < len(items):
         if items[i] == target:
             return i
-        # Bug: i never increments
+        i += 1  # Fix: increment i to avoid infinite loop
+    return -1  # Return -1 if item not found
 
-# Bug 3: Wrong comparison operator
+# Function to check if a password is correct
 def check_password(password):
     correct = "secret123"
-    if password = correct:  # Bug: should be ==
+    if password == correct:  # Fix: correct comparison operator
         return True
     return False
 
-# Bug 4: List index out of range
+# Function to get the last item in a list
 def get_last_item(my_list):
-    return my_list[len(my_list)]  # Bug: should be len-1
+    return my_list[len(my_list) - 1]  # Fix: correct index for last item
 
-# Bug 5: String concatenation error
+# Function to greet a user
 def greet_user(name, age):
-    return "Hello " + name + " you are " + age + " years old"
+    return f"Hello {name}, you are {age} years old"  # Fix: use f-string for string concatenation
 
-# Main
+# Main function
 def main():
     numbers = [10, 20, 30, 40, 50]
     print(calculate_average(numbers))
